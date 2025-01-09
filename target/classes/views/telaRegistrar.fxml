@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="748.0" style="-fx-background-color: #DFF8E7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.RegistrarController" >
+   <children>
+      <Label layoutX="105.0" layoutY="127.0" prefHeight="27.0" prefWidth="91.0" text="ID do livro:">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="106.0" layoutY="187.0" prefHeight="27.0" prefWidth="176.0" text="Quantidade vendida:">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="105.0" layoutY="247.0" prefHeight="27.0" prefWidth="91.0" text="Valor total:">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="105.0" layoutY="366.0" prefHeight="27.0" prefWidth="122.0" text="Data da venda:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="106.0" layoutY="306.0" prefHeight="27.0" prefWidth="147.0" text="Nome do cliente:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dataVenda" layoutX="105.0" layoutY="393.0" prefHeight="27.0" prefWidth="330.0" style="-fx-border-color: #1C5530;" />
+      <Label layoutX="105.0" layoutY="62.0" text="Registrar Venda">
+         <font>
+            <Font name="tommy font Regular" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="registrar" layoutX="105.0" layoutY="453.0" mnemonicParsing="false" onAction="#registrar" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #1C5530;" text="Registrar" textFill="WHITE" />
+      <Button fx:id="cancelar" layoutX="313.0" layoutY="453.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #1C5530;" text="Cancelar" textFill="WHITE" />
+      <TextField fx:id="idLivro" layoutX="105.0" layoutY="154.0" prefHeight="27.0" prefWidth="330.0" style="-fx-border-color: #1C5530;" />
+      <TextField fx:id="quantidade" layoutX="105.0" layoutY="214.0" prefHeight="27.0" prefWidth="330.0" style="-fx-border-color: #1C5530;" />
+      <TextField fx:id="valor" layoutX="106.0" layoutY="274.0" prefHeight="27.0" prefWidth="330.0" style="-fx-border-color: #1C5530;" />
+      <TextField fx:id="cliente" layoutX="106.0" layoutY="333.0" prefHeight="27.0" prefWidth="330.0" style="-fx-border-color: #1C5530;" />
+      <ImageView fitHeight="451.0" fitWidth="207.0" layoutX="510.0" layoutY="-11.0">
+         <image>
+            <Image url="@../../../../../../../Pictures/DALL_E_2024-12-14_14.59.15_-_A_minimalist_homepage_design_for_a_bookstore_website__featuring_shades_of_green_and_decorative_hanging_plants._The_layout_includes_a_welcoming_header_-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="748.0" style="-fx-background-color: #DFF8E7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.InicialController" >
+   <children>
+      <AnchorPane layoutX="7.0" layoutY="204.0" prefHeight="407.0" prefWidth="755.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Button fx:id="adicionarLivro" layoutX="150.0" layoutY="104.0" mnemonicParsing="false" onAction="#adicionar" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: #1C5530;" text="Adicionar Livro" textFill="WHITE" />
+            <Button fx:id="editarLivro" layoutX="150.0" layoutY="172.0" mnemonicParsing="false" onAction="#editar" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: #1C5530;" text="Editar Dados do Livro" textFill="WHITE" />
+            <Button fx:id="registrarVenda" layoutX="390.0" layoutY="104.0" mnemonicParsing="false" onAction="#registrar" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: #1C5530;" text="Registrar Venda" textFill="WHITE" />
+            <Button fx:id="removerLivro" layoutX="150.0" layoutY="243.0" mnemonicParsing="false" onAction="#remover" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: #1C5530;" text="Remover Livro" textFill="WHITE" />
+            <Button fx:id="transacoes" layoutX="390.0" layoutY="172.0" mnemonicParsing="false" onAction="#verTransacoes" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: #1C5530;" text="Ver Histórico de Transações" textFill="WHITE" />
+            <Button fx:id="estoque" layoutX="390.0" layoutY="243.0" mnemonicParsing="false" onAction="#listar" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: #1C5530;" text="Listar Livros em Estoque" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="230.0" fitWidth="395.0" layoutX="168.0" layoutY="14.0">
+         <image>
+            <Image url="@../../../../../../../Pictures/DALL_E_2024-12-12_07.54.01_-_A_visually_appealing_website_mockup_for_a_bookstore__designed_in_shades_of_green._The_top_of_the_page_features_a_minimalist_logo_of_a_sitting_fox_in_s-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
