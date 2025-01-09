@@ -14,5 +14,17 @@ CREATE TABLE Estoque_Livro
     preco float not null
 )
 
+CREATE TABLE Estoque_Venda
+(
+    id varchar(50) primary key,
+    idLivro varchar(5) not null,
+    quantidadeVendida int not null,
+    valorTotal  float not null,
+    cpfCliente varchar(14) not null,
+    dataVenda date not null
+)
+
+
+
 
 

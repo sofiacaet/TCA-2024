@@ -18,7 +18,7 @@ public class UsuarioDAOImpl implements UsuarioDAO
     }
 
     @Override
-    public Usuario bucarPorEmail(String email) 
+    public Usuario buscarPorEmail(String email) 
     {
 
         Usuario usuario = null;

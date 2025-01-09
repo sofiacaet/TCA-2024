@@ -14,10 +14,10 @@ public class UsuarioRepository
         this.usuarioDAOImpl = new UsuarioDAOImpl();
     }
 
-    public Usuario buscarPoEmail(String email) throws SQLException 
+    public Usuario buscarPorEmail(String email) throws SQLException 
     {
         
-       return usuarioDAOImpl.bucarPorEmail(email);
+       return usuarioDAOImpl.buscarPorEmail(email);
     }
 
     public void cadastrar(Usuario usuario) throws SQLException 

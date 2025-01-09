@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class FabricaConexoes {
 
-    private static int MAX_CONNECTIONS = 5;
+    private static int MAX_CONNECTIONS = 10;
     private final String URL_DB;
     private final String DB_NAME;
     private final String USER;

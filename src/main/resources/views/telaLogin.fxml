@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="231.0" fitWidth="283.0" layoutX="7.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/DALL_E_2024-12-11_15.23.13_-_A_collection_of_vertically_stacked_books_designed_in_elegant_shades_of_green__displayed_as_a_standalone_illustration_with_no_background__transparent_P-removebg-preview%20(1).png" />
+            <Image url="@../images/DALL_E_2024-12-11_15.23.13_-_A_collection_of_vertically_stacked_books_designed_in_elegant_shades_of_green__displayed_as_a_standalone_illustration_with_no_background__transparent_P-removebg-preview%20(1).png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="232.0" layoutY="128.0" prefHeight="332.0" prefWidth="280.0">
@@ -34,14 +34,14 @@
       </AnchorPane>
       <ImageView fitHeight="148.0" fitWidth="161.0" layoutX="292.0" layoutY="54.0">
          <image>
-            <Image url="@../../../../../../../Pictures/DALL_E_2024-12-11_15.09.08_-_A_clean_and_modern_login_page_for_a_bookstore_website__designed_in_shades_of_green._The_background_is_white_with_mint_green_accents__featuring_a_minim-removebg-preview.png" />
+            <Image url="@../images/DALL_E_2024-12-11_15.09.08_-_A_clean_and_modern_login_page_for_a_bookstore_website__designed_in_shades_of_green._The_background_is_white_with_mint_green_accents__featuring_a_minim-removebg-preview.png" />
          </image>
       </ImageView>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="743.0" style="-fx-background-color: #DFF8E7;">
          <children>
             <ImageView fitHeight="231.0" fitWidth="283.0" layoutX="7.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/DALL_E_2024-12-11_15.23.13_-_A_collection_of_vertically_stacked_books_designed_in_elegant_shades_of_green__displayed_as_a_standalone_illustration_with_no_background__transparent_P-removebg-preview%20(1).png" />
+                  <Image url="@../images/DALL_E_2024-12-11_15.23.13_-_A_collection_of_vertically_stacked_books_designed_in_elegant_shades_of_green__displayed_as_a_standalone_illustration_with_no_background__transparent_P-removebg-preview%20(1).png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="232.0" layoutY="128.0" prefHeight="332.0" prefWidth="280.0">
@@ -59,13 +59,13 @@
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="167.0" fitWidth="200.0" layoutX="40.0" layoutY="-83.0">
+                     <image>
+                        <Image url="@../images/DALL_E_2024-12-11_15.09.08_-_A_clean_and_modern_login_page_for_a_bookstore_website__designed_in_shades_of_green._The_background_is_white_with_mint_green_accents__featuring_a_minim-removebg-preview.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="148.0" fitWidth="161.0" layoutX="292.0" layoutY="54.0">
-               <image>
-                  <Image url="@../../../../../../../Pictures/DALL_E_2024-12-11_15.09.08_-_A_clean_and_modern_login_page_for_a_bookstore_website__designed_in_shades_of_green._The_background_is_white_with_mint_green_accents__featuring_a_minim-removebg-preview.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>

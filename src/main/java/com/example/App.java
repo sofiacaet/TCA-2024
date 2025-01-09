@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxTela = new FXMLLoader(getClass().getResource("/views/telaAdicionar.fxml"));
+        FXMLLoader fxTela = new FXMLLoader(getClass().getResource("/views/telaLogin.fxml"));
 
         Parent root = fxTela.load();
         scene = new Scene(root, 748, 611);

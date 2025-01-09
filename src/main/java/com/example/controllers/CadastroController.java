@@ -39,7 +39,7 @@ public class CadastroController
 
         if (senha.getText().equals(confirmarSenha.getText())) 
         {
-            if (repository.buscarPoEmail(email.getText()) == null) 
+            if (repository.buscarPorEmail(email.getText()) == null) 
             {
                 Usuario usuario = new Usuario(email.getText(), senha.getText());
                 repository.cadastrar(usuario);
@@ -73,7 +73,7 @@ public class CadastroController
         repository = new UsuarioRepository();
         if (senha.getText().equals(confirmarSenha.getText())) 
         {
-            if (repository.buscarPoEmail(email.getText()) == null) 
+            if (repository.buscarPorEmail(email.getText()) == null) 
             {
                 Usuario usuario = new Usuario(email.getText(), senha.getText());
                 repository.cadastrar(usuario);

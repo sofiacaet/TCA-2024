@@ -32,7 +32,7 @@ public class LoginController
     private void entrar() throws Exception
     {
         repository = new UsuarioRepository();
-        Usuario usuario = repository.buscarPoEmail(email.getText());
+        Usuario usuario = repository.buscarPorEmail(email.getText());
 
         if (usuario == null) {
             System.out.println("EMAIL ERRADO!");

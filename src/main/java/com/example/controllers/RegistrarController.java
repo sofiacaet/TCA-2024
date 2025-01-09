@@ -1,6 +1,10 @@
 package com.example.controllers;
 
 import com.example.App;
+import com.example.models.Livro;
+import com.example.models.Venda;
+import com.example.repositories.LivroRepository;
+import com.example.repositories.VendaRepository;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -30,12 +34,26 @@ public class RegistrarController
     @FXML
     private DatePicker dataVenda;
 
-
+    VendaRepository repository;
+    LivroRepository repositoryLivro;
 
     @FXML
-    private void registrar()
+    private void registrar() throws Exception // garante que não vai parar a aplicação mediante a erro
     {
+        repository = new VendaRepository();
+        repositoryLivro = new LivroRepository();
+        Livro livro = repositoryLivro.buscarId(idLivro.getText());
+        if (livro != null) {
+            Venda venda = new Venda(livro, Integer.parseInt(quantidade.getText()), cliente.getText());
+           repository.registrar(venda);
+           App.setRoot("telaInicial");
+        }else{
+            System.out.println("LIVRO NAO ENCONTRADO!");
+        }
+
         
+        
+
     }
 
     @FXML

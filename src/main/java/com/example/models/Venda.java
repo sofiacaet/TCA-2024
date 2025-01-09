@@ -13,6 +13,17 @@ public class Venda
     private LocalDate dataVenda;
     
     
+    public Venda(String idVenda, Livro livro, Integer quantidadeVendida, Double valorTotal, String cliente,
+            LocalDate dataVenda) {
+        this.idVenda = idVenda;
+        this.livro = livro;
+        this.quantidadeVendida = quantidadeVendida;
+        this.valorTotal = valorTotal;
+        this.cliente = cliente;
+        this.dataVenda = dataVenda;
+    }
+
+
     public Venda(Livro livro, Integer quantidadeVendida, String cliente) 
     {
         this.idVenda = UUID.randomUUID().toString(); //vai gerar um id unico que não repete
