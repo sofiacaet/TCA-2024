@@ -9,6 +9,14 @@ public class Livro
     private Double preco;
 
    
+    public Livro(String idLivro, String nome, Integer quantidade, String categoria, Double preco) {
+        this.idLivro = idLivro;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.categoria = categoria;
+        this.preco = preco;
+    }
+
     public Livro(String nome, Integer quantidade, String categoria, Double preco) {
         this.nome = nome;
         this.quantidade = quantidade;

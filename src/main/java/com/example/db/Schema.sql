@@ -5,5 +5,14 @@ CREATE TABLE Estoque_Usuario
     senha_hash varchar(255) not null
 )
 
+CREATE TABLE Estoque_Livro
+(
+    id varchar(5) primary key,
+    nome varchar(50) not null,
+    quantidade int not null,
+    categoria varchar(50) not null,
+    preco float not null
+)
+
 
 
