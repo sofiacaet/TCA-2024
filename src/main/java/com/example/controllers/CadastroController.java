@@ -1,6 +1,8 @@
 package com.example.controllers;
 
 import com.example.App;
+import com.example.models.Usuario;
+import com.example.repositories.UsuarioRepository;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,7 +20,7 @@ public class CadastroController
     private TextField senha;
 
     @FXML
-    private TextField confirmaSenha;
+    private TextField confirmarSenha;
 
     @FXML
     private Button voltar;
@@ -26,15 +28,32 @@ public class CadastroController
     @FXML
     private Button cadastrar;
 
+    UsuarioRepository repository;
+
 
     @FXML
-    private void cadastrar()
+    private void cadastrar() throws Exception
     {
-        try {
-            App.setRoot("telaInicial");
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
+
+        repository = new UsuarioRepository();
+
+        if (senha.getText().equals(confirmarSenha.getText())) 
+        {
+            if (repository.buscarPoEmail(email.getText()) == null) 
+            {
+                Usuario usuario = new Usuario(email.getText(), senha.getText());
+                repository.cadastrar(usuario);
+                App.setRoot("telaLogin");
+            }else
+            {
+                System.out.println("EMAIL JA EXISTE!");
+            }
+            
+        }else{
+            System.out.println("SENHA DIFERENTE!");
         }
+        
+
     }
 
     @FXML
@@ -48,9 +67,26 @@ public class CadastroController
     }
 
     @FXML
-    private void cadastrarCadastro()
+    private void cadastrarCadastro() throws Exception
     {
-
+        
+        repository = new UsuarioRepository();
+        if (senha.getText().equals(confirmarSenha.getText())) 
+        {
+            if (repository.buscarPoEmail(email.getText()) == null) 
+            {
+                Usuario usuario = new Usuario(email.getText(), senha.getText());
+                repository.cadastrar(usuario);
+                App.setRoot("telaLogin");
+            }else
+            {
+                System.out.println("EMAIL JA EXISTE!");
+            }
+            
+        }else{
+            System.out.println("SENHA DIFERENTE!");
+        }
+        
     }
 
 }

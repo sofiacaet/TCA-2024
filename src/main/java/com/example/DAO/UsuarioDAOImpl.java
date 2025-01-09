@@ -46,5 +46,20 @@ public class UsuarioDAOImpl implements UsuarioDAO
 
         return usuario;
     }
+
+    @Override
+    public void cadastrar(Usuario usuario) {
+       String sql = "INSERT INTO Estoque_Usuario (email, senha_hash) VALUES (?, ?)";
+       try {
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, usuario.getEmail());
+        stmt.setString(2, usuario.getSenha_hash());
+        stmt.execute();
+        stmt.close();
+
+       } catch (Exception e) {
+        e.printStackTrace();
+       }
+    }
     
 }

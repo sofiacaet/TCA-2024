@@ -20,4 +20,10 @@ public class UsuarioRepository
        return usuarioDAOImpl.bucarPorEmail(email);
     }
 
+    public void cadastrar(Usuario usuario) throws SQLException 
+    {
+        
+       usuarioDAOImpl.cadastrar(usuario);
+    }
+
 }
