@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="748.0" style="-fx-background-color: #DFF8E7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="78.0" layoutY="156.0" prefHeight="401.0" prefWidth="585.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Cliente" />
+            <TableColumn prefWidth="93.0" text="Livro" />
+            <TableColumn prefWidth="85.0" text="Quantidade" />
+            <TableColumn prefWidth="106.0" text="Valor Total (R$)" />
+            <TableColumn prefWidth="117.0" text="Tipo de Transação" />
+            <TableColumn prefWidth="117.0" text="Responsável" />
+         </columns>
+      </TableView>
+      <Label layoutX="157.0" layoutY="70.0" text="Histórico de Transações">
+         <font>
+            <Font name="tommy font Regular" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
