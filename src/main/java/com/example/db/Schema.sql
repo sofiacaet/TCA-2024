@@ -24,6 +24,12 @@ CREATE TABLE Estoque_Venda
     dataVenda date not null
 )
 
+CREATE TABLE Estoque_Cliente
+(
+    cpf varchar(14) primary key,
+    nome varchar(50) not null,
+    numero varchar(11) not null
+)
 
 
 

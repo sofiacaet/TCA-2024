@@ -11,6 +11,7 @@ public class Venda
     private Double valorTotal;
     private String cliente;
     private LocalDate dataVenda;
+    private String nomeLivro;
     
     
     public Venda(String idVenda, Livro livro, Integer quantidadeVendida, Double valorTotal, String cliente,
@@ -21,6 +22,7 @@ public class Venda
         this.valorTotal = valorTotal;
         this.cliente = cliente;
         this.dataVenda = dataVenda;
+        this.nomeLivro = livro.getNome();
     }
 
 
@@ -32,6 +34,7 @@ public class Venda
         this.valorTotal = livro.getPreco() * quantidadeVendida;
         this.cliente = cliente;
         this.dataVenda = LocalDate.now(); // pega a data atual   
+        this.nomeLivro = livro.getNome();
     }
 
 
@@ -89,6 +92,22 @@ public class Venda
     public void setLivro(Livro livro) 
     {
         this.livro = livro;
+    }
+
+
+    public String getNomeLivro() {
+        return nomeLivro;
+    }
+
+
+    public void setNomeLivro(String nomeLivro) {
+        this.nomeLivro = nomeLivro;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Venda [nomeLivro=" + nomeLivro + "]";
     }
    
 }

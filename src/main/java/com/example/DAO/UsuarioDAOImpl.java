@@ -39,7 +39,7 @@ public class UsuarioDAOImpl implements UsuarioDAO
             rs.close();
 
             stmt.close();
-
+        this.conexao.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,6 +57,7 @@ public class UsuarioDAOImpl implements UsuarioDAO
         stmt.execute();
         stmt.close();
 
+        this.conexao.close();
        } catch (Exception e) {
         e.printStackTrace();
        }

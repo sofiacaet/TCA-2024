@@ -42,12 +42,31 @@ public class InicialController
     @FXML
     private void verTransacoes()
     {
-        
+        try {
+            App.setRoot("telaTransacoes");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML
     private void listar()
     {
-        
+        try {
+            App.setRoot("telaEstoque");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+
+    @FXML
+    private void adicionarCliente()
+    {
+        try {
+            App.setRoot("telaAdicionarCliente");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 }

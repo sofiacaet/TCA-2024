@@ -27,7 +27,7 @@ public class AlunoDAOImpl implements AlunoDAO {
             stmt.setString(2, aluno.getEmail());
             stmt.execute();
             stmt.close();
-
+        this.conexao.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,7 +66,8 @@ public class AlunoDAOImpl implements AlunoDAO {
             stmt.close();
 
             result.close();
-            conexao.close();
+            this.conexao.close();
+        
         } catch (Exception e) {
             e.printStackTrace();
         }

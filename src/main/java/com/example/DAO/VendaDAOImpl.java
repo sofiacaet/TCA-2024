@@ -32,6 +32,7 @@ public class VendaDAOImpl implements VendaDAO
             stmt.setString(5, venda.getCliente());
             stmt.setObject(6, venda.getDataVenda());
             stmt.executeUpdate();
+            this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,6 +62,7 @@ public class VendaDAOImpl implements VendaDAO
                     );
                 }
             }
+        this.conexao.close();
         } catch (SQLException e) 
         {
             e.printStackTrace();
@@ -86,6 +88,7 @@ public class VendaDAOImpl implements VendaDAO
                     dataVenda
                 ));
             }
+        this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -109,6 +112,7 @@ public class VendaDAOImpl implements VendaDAO
                     );
                 }
             }
+        this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

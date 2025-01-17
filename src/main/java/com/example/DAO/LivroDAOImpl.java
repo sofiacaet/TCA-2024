@@ -24,6 +24,7 @@ public class LivroDAOImpl implements LivroDAO {
             stmt.setString(4, livro.getCategoria());
             stmt.setDouble(5, livro.getPreco());
             stmt.executeUpdate();
+            this.conexao.close(); // pra conexao nao ficar aberta
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,6 +38,7 @@ public class LivroDAOImpl implements LivroDAO {
             stmt.setDouble(2, livro.getPreco());
             stmt.setString(3, livro.getIdLivro());
             stmt.executeUpdate();
+            this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,6 +50,7 @@ public class LivroDAOImpl implements LivroDAO {
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, livro.getIdLivro());
             stmt.executeUpdate();
+            this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,6 +72,7 @@ public class LivroDAOImpl implements LivroDAO {
                     );
                 }
             }
+            this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,7 +81,7 @@ public class LivroDAOImpl implements LivroDAO {
 
     @Override
     public ArrayList<Livro> listar() {
-        String sql = "SELECT * FROM livros";
+        String sql = "SELECT * FROM Estoque_Livro";
         ArrayList<Livro> livros = new ArrayList<>();
         try (PreparedStatement stmt = conexao.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
@@ -90,6 +94,7 @@ public class LivroDAOImpl implements LivroDAO {
                     rs.getDouble("preco")
                 ));
             }
+            this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
