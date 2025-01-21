@@ -51,9 +51,6 @@ public class RegistrarController
             System.out.println("LIVRO NAO ENCONTRADO!");
         }
 
-        
-        
-
     }
 
     @FXML

@@ -12,6 +12,7 @@ import com.example.repositories.VendaRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,6 +36,9 @@ public class TransacoesController
 
     @FXML
     private TableColumn<Venda, LocalDate>  dataVenda;
+
+    @FXML
+    private Button voltar;//
 
     private final ObservableList<Venda> transacoes = FXCollections.observableArrayList();
      

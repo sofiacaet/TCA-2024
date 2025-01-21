@@ -20,7 +20,11 @@ public class InicialController
     @FXML
     private void editar()
     {
-        
+        try {
+            App.setRoot("telaEditar");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML
@@ -36,7 +40,11 @@ public class InicialController
     @FXML
     private void remover()
     {
-        
+        try {
+            App.setRoot("telaRemover");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML
