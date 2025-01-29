@@ -103,7 +103,7 @@ public class Venda
     public void setNomeLivro(String nomeLivro) {
         this.nomeLivro = nomeLivro;
     }
-
+    
 
     @Override
     public String toString() {

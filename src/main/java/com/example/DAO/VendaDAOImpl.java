@@ -10,21 +10,19 @@ import java.util.ArrayList;
 import com.example.db.FabricaConexoes;
 import com.example.models.Livro;
 import com.example.models.Venda;
+import com.example.models.enums.Status;
 import com.example.models.interfaces.VendaDAO;
 
 public class VendaDAOImpl implements VendaDAO 
 {
-    private Connection conexao;
-
-    public VendaDAOImpl() throws SQLException{
-        this.conexao = FabricaConexoes.getInstance().getConnection(); 
-    }
-
     @Override
     public void registrar(Venda venda) 
     {
         String sql = "INSERT INTO Estoque_Venda (id, idLivro, quantidadeVendida, valorTotal, cpfCliente, dataVenda) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+        try (
+            Connection conexao = FabricaConexoes.getInstance().getConnection(); 
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+        ) {
             stmt.setString(1, venda.getIdVenda());
             stmt.setString(2, venda.getLivro().getIdLivro());
             stmt.setInt(3, venda.getQuantidadeVendida());
@@ -32,7 +30,6 @@ public class VendaDAOImpl implements VendaDAO
             stmt.setString(5, venda.getCliente());
             stmt.setObject(6, venda.getDataVenda());
             stmt.executeUpdate();
-            this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -43,8 +40,10 @@ public class VendaDAOImpl implements VendaDAO
        
         String sql = "SELECT * FROM Estoque_Venda WHERE id = ?";
         
-        try (PreparedStatement stmt = conexao.prepareStatement(sql)) 
-        {
+        try (
+            Connection conexao = FabricaConexoes.getInstance().getConnection(); 
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+        ) {
             stmt.setString(1, id);
             try (ResultSet rs = stmt.executeQuery()) 
             {
@@ -62,7 +61,6 @@ public class VendaDAOImpl implements VendaDAO
                     );
                 }
             }
-        this.conexao.close();
         } catch (SQLException e) 
         {
             e.printStackTrace();
@@ -75,8 +73,11 @@ public class VendaDAOImpl implements VendaDAO
     {
         String sql = "SELECT * FROM Estoque_Venda";
         ArrayList<Venda> venda = new ArrayList<>();
-        try (PreparedStatement stmt = conexao.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+        try (
+            Connection conexao = FabricaConexoes.getInstance().getConnection(); 
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()
+        ) {
             while (rs.next()) {
                 LocalDate dataVenda = rs.getObject("dataVenda", LocalDate.class);
                 venda.add(new Venda(
@@ -88,7 +89,6 @@ public class VendaDAOImpl implements VendaDAO
                     dataVenda
                 ));
             }
-        this.conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -99,7 +99,10 @@ public class VendaDAOImpl implements VendaDAO
 
     public Livro buscarLivro(String id) {
         String sql = "SELECT * FROM Estoque_Livro WHERE id = ?";
-        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+        try (
+            Connection conexao = FabricaConexoes.getInstance().getConnection(); 
+            PreparedStatement stmt = conexao.prepareStatement(sql)
+        ) {
             stmt.setString(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -108,12 +111,12 @@ public class VendaDAOImpl implements VendaDAO
                         rs.getString("nome"),
                         rs.getInt("quantidade"),
                         rs.getString("categoria"),
-                        rs.getDouble("preco")
+                        rs.getDouble("preco"),
+                        Status.fromString(rs.getString("status"))
                     );
                 }
             }
-        this.conexao.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

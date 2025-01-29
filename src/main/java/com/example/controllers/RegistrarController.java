@@ -1,10 +1,14 @@
 package com.example.controllers;
 
 import com.example.App;
+import com.example.models.Cliente;
 import com.example.models.Livro;
 import com.example.models.Venda;
+import com.example.models.enums.Status;
+import com.example.repositories.ClienteRepository;
 import com.example.repositories.LivroRepository;
 import com.example.repositories.VendaRepository;
+import javafx.scene.control.Alert;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -36,19 +40,41 @@ public class RegistrarController
 
     VendaRepository repository;
     LivroRepository repositoryLivro;
+    ClienteRepository repositoryCliente;
 
     @FXML
-    private void registrar() throws Exception // garante que não vai parar a aplicação mediante a erro
+    private void registrar()
     {
-        repository = new VendaRepository();
-        repositoryLivro = new LivroRepository();
-        Livro livro = repositoryLivro.buscarId(idLivro.getText());
-        if (livro != null) {
-            Venda venda = new Venda(livro, Integer.parseInt(quantidade.getText()), cliente.getText());
-           repository.registrar(venda);
-           App.setRoot("telaInicial");
-        }else{
-            System.out.println("LIVRO NAO ENCONTRADO!");
+        try {
+            repository = new VendaRepository();
+            repositoryLivro = new LivroRepository();
+            repositoryCliente = new ClienteRepository();
+
+            Livro livro = repositoryLivro.buscarId(idLivro.getText());
+            if (livro != null) {
+                Cliente comprador = repositoryCliente.buscarPorCpf(cliente.getText());
+                if (comprador != null) {
+                    if (livro.getStatus() != Status.INDISPONIVEL) {
+                        livro.vender(Integer.parseInt(quantidade.getText()));
+                        Venda venda = new Venda(livro, Integer.parseInt(quantidade.getText()), cliente.getText());
+                        repositoryLivro.editar(livro);
+                        repository.registrar(venda);
+                        App.setRoot("telaInicial");
+                    }else{
+                        throw new Exception("ERRO: Livro indisponivel para venda!");
+                    }
+                }else{
+                    throw new Exception("ERRO: Cliente não cadastrado no sistema!");
+                }
+            }else{
+                throw new Exception("ERRO: Livro não encontrado!");
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("ERRO");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
 
     }

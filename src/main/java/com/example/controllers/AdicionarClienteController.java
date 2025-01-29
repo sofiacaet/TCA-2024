@@ -5,6 +5,7 @@ import com.example.models.Cliente;
 import com.example.repositories.ClienteRepository;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -31,20 +32,28 @@ public class AdicionarClienteController
     @FXML
     private void adicionar() throws Exception
     {
-        repository = new ClienteRepository();
-        if (repository.buscarPorCpf(cpfCliente.getText()) ==  null) 
-        {
-            
-           Cliente cliente = new Cliente(
-                cpfCliente.getText(),
-                nomeCliente.getText(), 
-                numeroCliente.getText() 
-                );
+        try {
+            repository = new ClienteRepository();
+            if (repository.buscarPorCpf(cpfCliente.getText()) ==  null) 
+            {
+                
+            Cliente cliente = new Cliente(
+                    nomeCliente.getText(), 
+                    cpfCliente.getText(),
+                    numeroCliente.getText() 
+                    );
 
-                repository.cadastrar(cliente);
-                App.setRoot("telaInicial");
-        }else{
-           System.out.println("JA EXISTE UM CLIENTE COM ESSE CPF!");
+                    repository.cadastrar(cliente);
+                    App.setRoot("telaInicial");
+            }else{
+                throw new Exception("ERRO: Já existe um cliente com esse CPF!");
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("ERRO");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
         
 

@@ -5,6 +5,7 @@ import com.example.models.Usuario;
 import com.example.repositories.UsuarioRepository;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -34,26 +35,32 @@ public class CadastroController
     @FXML
     private void cadastrar() throws Exception
     {
+        try {
+            repository = new UsuarioRepository();
 
-        repository = new UsuarioRepository();
-
-        if (senha.getText().equals(confirmarSenha.getText())) 
-        {
-            if (repository.buscarPorEmail(email.getText()) == null) 
+            if (senha.getText().equals(confirmarSenha.getText())) 
             {
-                Usuario usuario = new Usuario(email.getText(), senha.getText());
-                repository.cadastrar(usuario);
-                App.setRoot("telaLogin");
-            }else
-            {
-                System.out.println("EMAIL JA EXISTE!");
+                if (repository.buscarPorEmail(email.getText()) == null) 
+                {
+                    Usuario usuario = new Usuario(email.getText(), senha.getText());
+                    repository.cadastrar(usuario);
+                    App.setRoot("telaLogin");
+                }else
+                {
+                    throw new Exception("ERRO: Este E-mail já existe!");
+                }
+                
+            }else{
+                throw new Exception("ERRO: As senhas nao coincidem!");
             }
-            
-        }else{
-            System.out.println("SENHA DIFERENTE!");
+        } catch (Exception e) 
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("ERRO");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
-        
-
     }
 
     @FXML
@@ -69,24 +76,32 @@ public class CadastroController
     @FXML
     private void cadastrarCadastro() throws Exception
     {
-        
-        repository = new UsuarioRepository();
-        if (senha.getText().equals(confirmarSenha.getText())) 
-        {
-            if (repository.buscarPorEmail(email.getText()) == null) 
+        try {
+            repository = new UsuarioRepository();
+
+            if (senha.getText().equals(confirmarSenha.getText())) 
             {
-                Usuario usuario = new Usuario(email.getText(), senha.getText());
-                repository.cadastrar(usuario);
-                App.setRoot("telaLogin");
-            }else
-            {
-                System.out.println("EMAIL JA EXISTE!");
+                if (repository.buscarPorEmail(email.getText()) == null) 
+                {
+                    Usuario usuario = new Usuario(email.getText(), senha.getText());
+                    repository.cadastrar(usuario);
+                    App.setRoot("telaLogin");
+                }else
+                {
+                    throw new Exception("ERRO: Este E-mail já existe!");
+                }
+                
+            }else{
+                throw new Exception("ERRO: As senhas nao coincidem!");
             }
-            
-        }else{
-            System.out.println("SENHA DIFERENTE!");
+        } catch (Exception e) 
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("ERRO");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
         
     }
-
 }
