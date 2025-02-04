@@ -68,32 +68,33 @@ public class VendaDAOImpl implements VendaDAO
         return null;
     }
 
-    @Override
+   @Override
     public ArrayList<Venda> listar() 
     {
-        String sql = "SELECT * FROM Estoque_Venda";
-        ArrayList<Venda> venda = new ArrayList<>();
+        String sql = "SELECT * FROM Transacoes"; // Agora buscando da VIEW
+        ArrayList<Venda> venda = new ArrayList<>(); // Usando o nome original "venda"
+
         try (
-            Connection conexao = FabricaConexoes.getInstance().getConnection(); 
+            Connection conexao = FabricaConexoes.getInstance().getConnection();
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()
         ) {
             while (rs.next()) {
                 LocalDate dataVenda = rs.getObject("dataVenda", LocalDate.class);
-                venda.add(new Venda(
-                    rs.getString("id"),
-                    buscarLivro(rs.getString("idLivro")),
+            
+                venda.add(new Venda( // Adicionando à lista "venda"
+                    rs.getString("cliente_cpf"),  // CPF do cliente
+                    rs.getString("cliente_nome"), // Nome do cliente
+                    rs.getString("livro_nome"),   // Nome do livro
                     rs.getInt("quantidadeVendida"),
                     rs.getDouble("valorTotal"),
-                    rs.getString("cpfCliente"),
                     dataVenda
                 ));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+        e.printStackTrace();
         }
-        return venda;
-      
+        return venda; // Retornando a lista "venda"
     }
 
 

@@ -23,6 +23,9 @@ public class TransacoesController
     private TableView<Venda> tableView;
 
     @FXML
+    private TableColumn<Venda, String> nomeCliente;
+
+    @FXML
     private TableColumn<Venda, String>  cpfCliente;
 
     @FXML
@@ -47,6 +50,7 @@ public class TransacoesController
     @FXML
     public void initialize() throws Exception
     {
+        nomeCliente.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
         cpfCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
         nomeLivro.setCellValueFactory(new PropertyValueFactory<>("nomeLivro"));
         quantidade.setCellValueFactory(new PropertyValueFactory<>("quantidadeVendida"));

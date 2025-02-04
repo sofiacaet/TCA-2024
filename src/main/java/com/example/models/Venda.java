@@ -12,6 +12,7 @@ public class Venda
     private String cliente;
     private LocalDate dataVenda;
     private String nomeLivro;
+    private String nomeCliente;
     
     
     public Venda(String idVenda, Livro livro, Integer quantidadeVendida, Double valorTotal, String cliente,
@@ -35,6 +36,16 @@ public class Venda
         this.cliente = cliente;
         this.dataVenda = LocalDate.now(); // pega a data atual   
         this.nomeLivro = livro.getNome();
+    }
+
+    public Venda(String clienteCpf, String clienteNome, String nomeLivro, Integer quantidadeVendida, Double valorTotal, LocalDate dataVenda) {
+        this.idVenda = UUID.randomUUID().toString(); 
+        this.cliente = clienteCpf;
+        this.nomeCliente = clienteNome; // Aqui estamos armazenando corretamente o nome do cliente
+        this.nomeLivro = nomeLivro; 
+        this.quantidadeVendida = quantidadeVendida;
+        this.valorTotal = valorTotal;
+        this.dataVenda = dataVenda;
     }
 
 
@@ -109,5 +120,17 @@ public class Venda
     public String toString() {
         return "Venda [nomeLivro=" + nomeLivro + "]";
     }
+    
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+
    
 }
